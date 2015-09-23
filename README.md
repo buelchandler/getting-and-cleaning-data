@@ -2,10 +2,10 @@
 Assignment for Coursera
 
 ---
-title: "CODEBOOK"
+title: "README"
 author: "Buel Chandler"
 date: "September 23, 2015"
-output: html_document
+output: md_document
 ---
 
 *If you'd like to load the resulting "tidy-ed" dataset, run the following:*
