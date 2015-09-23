@@ -7,6 +7,11 @@ author: "Buel Chandler"
 date: "September 23, 2015"
 output: html_document
 ---
+
+*If you'd like to load the resulting "tidy-ed" dataset, run the following:"
+data <- read.table("https://s3.amazonaws.com/coursera-uploads/user-e6a850d2b49e0d41ef424ccd/975116/asst-3/fdb8e67061e011e58af5c338b9539ab0.txt", header = TRUE) 
+View(data)
+
 # Introduction
 
 In this codebook, we detail what was done to get from the raw data provided by the course website and detail what steps were taken to do the five parts of the assignment proper. The end-state variables used are listed, as well as the transformation from raw to that end-state.
@@ -226,9 +231,7 @@ time_GravityAccMag_std
 
 # Part 5: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 ```{r}
-tidydata <- extractdata
-
-tidydata %>%
+tidydata <- extractdata %>%
     group_by(subject, activity) %>%
     summarise_each(funs(mean))
 
