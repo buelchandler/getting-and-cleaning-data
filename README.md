@@ -8,9 +8,11 @@ date: "September 23, 2015"
 output: html_document
 ---
 
-*If you'd like to load the resulting "tidy-ed" dataset, run the following:"
+*If you'd like to load the resulting "tidy-ed" dataset, run the following:*
+```{r}
 data <- read.table("https://s3.amazonaws.com/coursera-uploads/user-e6a850d2b49e0d41ef424ccd/975116/asst-3/fdb8e67061e011e58af5c338b9539ab0.txt", header = TRUE) 
 View(data)
+```
 
 # Introduction
 
