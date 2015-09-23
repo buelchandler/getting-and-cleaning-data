@@ -5,7 +5,7 @@ date: "September 23, 2015"
 output: html_document
 ---
 # Introduction
-This codebook is for the **Getting and Clening Data** course assignment. 
+This codebook is for the **Getting and Cleaning Data** course assignment. 
 
 In this codebook, we detail what was done to get from the raw data provided by the course website and detail what steps were taken to do the five parts of the assignment proper. The end-state variables used are listed, as well as the transformation from raw to that end-state.
 
