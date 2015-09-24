@@ -135,25 +135,48 @@ names(extractdata) <- gsub("__", "_", names(extractdata))
 names(extractdata) <- gsub("_$", "", names(extractdata))
 ```
 
-The resulting variable names are:
+## Data Taxonomy
 
+*Primary Key*
+
+**subject** (int) - ranges from 1 to 30 and corresponds to one of the 30 participants in the study
+
+*Secondary Key*
+
+**activity** (char/factor) - one of six activities each participant was subjected to
+       (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
+
+For the remainder of the variables, we provide a taxonomy that can be used to decicpher meaning. Note
+that all variables below are numeric (dbl).
+
+1. There are two sensors in the smartphone measured: Accelerometer (Acc) and Gyroscope (Gyro). Each sensor provides 3-
+
+axial signals in the X, Y and Z directions
+
+2. The Accelerometer signal was decomposed into a Body part (Body) and a Gravity part (Gravity)
+
+3. The recorded observations were over the time domain (time), and an Fast Fourier Transform was applied post experiment 
+
+to transform to the frequency (freq) domain
+
+4. Body linear acceleration and angular velocity were derived in time to obtain "Jerk" signals in addition
+
+5. The magnitude (Mag) of these three-dimensional (X,Y,Z) signals were calculated using the Euclidean norm
+
+6. a variety of statistical values were computed, of which the dataset we are creating only selected two:
+	* mean is arithmatic mean 
+	* std is standard deviation
+
+7. The average of the X,Y,Z signals in a signal window sample are denoted by "angle"
+
+Now the listing of the 86 feature variables:
+
+**Post Process FFT Frequency Domain**
 ```
-subject
-activity
-
-angle_time_BodyAcc_mean_gravity
-angle_time_BodyAccJerk_mean_gravity_mean
-angle_time_BodyGyro_mean_gravity_mean
-angle_time_BodyGyroJerk_mean_gravity_mean
-angle_X_gravity_mean
-angle_Y_gravity_mean
-angle_Z_gravity_mean
-
 freq_BodyAcc_mean_Freq_X
 freq_BodyAcc_mean_Freq_Y
 freq_BodyAcc_mean_Freq_Z
 freq_BodyAcc_mean_X
-freq_BodyAcc_mean_Y
 freq_BodyAcc_mean_Z
 freq_BodyAcc_std_X
 freq_BodyAcc_std_Y
@@ -188,7 +211,9 @@ freq_BodyGyro_mean_Z
 freq_BodyGyro_std_X
 freq_BodyGyro_std_Y
 freq_BodyGyro_std_Z
-
+```
+**Recorded data from experiment. Time Domain**
+```
 time_BodyAcc_mean_X
 time_BodyAcc_mean_Y
 time_BodyAcc_mean_Z
@@ -229,6 +254,16 @@ time_GravityAcc_std_Y
 time_GravityAcc_std_Z
 time_GravityAccMag_mean
 time_GravityAccMag_std
+```
+**Average of combined X,Y,Z Space Domain**
+```
+angle_time_BodyAcc_mean_gravity
+angle_time_BodyAccJerk_mean_gravity_mean
+angle_time_BodyGyro_mean_gravity_mean
+angle_time_BodyGyroJerk_mean_gravity_mean
+angle_X_gravity_mean
+angle_Y_gravity_mean
+angle_Z_gravity_mean
 ```
 
 # Part 5: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
