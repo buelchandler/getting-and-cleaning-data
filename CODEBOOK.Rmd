@@ -128,99 +128,126 @@ names(extractdata) <- gsub("_$", "", names(extractdata))
 
 The resulting variable names are:
 
-```
-subject
-activity
+subject (int) - ranges from 1 to 30 and corresponds to one of the 30 participants in the study
 
-angle_time_BodyAcc_mean_gravity
-angle_time_BodyAccJerk_mean_gravity_mean
-angle_time_BodyGyro_mean_gravity_mean
-angle_time_BodyGyroJerk_mean_gravity_mean
-angle_X_gravity_mean
-angle_Y_gravity_mean
-angle_Z_gravity_mean
+activity (char/factor) - one of six activities each participant was subjected to
+       (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
 
-freq_BodyAcc_mean_Freq_X
-freq_BodyAcc_mean_Freq_Y
-freq_BodyAcc_mean_Freq_Z
-freq_BodyAcc_mean_X
-freq_BodyAcc_mean_Y
-freq_BodyAcc_mean_Z
-freq_BodyAcc_std_X
-freq_BodyAcc_std_Y
-freq_BodyAcc_std_Z
-freq_BodyAccJerk_mean_Freq_X
-freq_BodyAccJerk_mean_Freq_Y
-freq_BodyAccJerk_mean_Freq_Z
-freq_BodyAccJerk_mean_X
-freq_BodyAccJerk_mean_Y
-freq_BodyAccJerk_mean_Z
-freq_BodyAccJerk_std_X
-freq_BodyAccJerk_std_Y
-freq_BodyAccJerk_std_Z
-freq_BodyAccMag_mean
-freq_BodyAccMag_mean_Freq
-freq_BodyAccMag_std
-freq_BodyBodyAccJerkMag_mean
-freq_BodyBodyAccJerkMag_mean_Freq
-freq_BodyBodyAccJerkMag_std
-freq_BodyBodyGyroJerkMag_mean
-freq_BodyBodyGyroJerkMag_mean_Freq
-freq_BodyBodyGyroJerkMag_std
-freq_BodyBodyGyroMag_mean
-freq_BodyBodyGyroMag_mean_Freq
-freq_BodyBodyGyroMag_std
-freq_BodyGyro_mean_Freq_X
-freq_BodyGyro_mean_Freq_Y
-freq_BodyGyro_mean_Freq_Z
-freq_BodyGyro_mean_X
-freq_BodyGyro_mean_Y
-freq_BodyGyro_mean_Z
-freq_BodyGyro_std_X
-freq_BodyGyro_std_Y
-freq_BodyGyro_std_Z
+For the meaning of the "feature", we provide a taxonomy that can be used to decicpher meaning. Note
+that all variables below are numeric (dbl).
 
-time_BodyAcc_mean_X
-time_BodyAcc_mean_Y
-time_BodyAcc_mean_Z
-time_BodyAcc_std_X
-time_BodyAcc_std_Y
-time_BodyAcc_std_Z
-time_BodyAccJerk_mean_X
-time_BodyAccJerk_mean_Y
-time_BodyAccJerk_mean_Z
-time_BodyAccJerk_std_X
-time_BodyAccJerk_std_Y
-time_BodyAccJerk_std_Z
-time_BodyAccJerkMag_mean
-time_BodyAccJerkMag_std
-time_BodyAccMag_mean
-time_BodyAccMag_std
-time_BodyGyro_mean_X
-time_BodyGyro_mean_Y
-time_BodyGyro_mean_Z
-time_BodyGyro_std_X
-time_BodyGyro_std_Y
-time_BodyGyro_std_Z
-time_BodyGyroJerk_mean_X
-time_BodyGyroJerk_mean_Y
-time_BodyGyroJerk_mean_Z
-time_BodyGyroJerk_std_X
-time_BodyGyroJerk_std_Y
-time_BodyGyroJerk_std_Z
-time_BodyGyroJerkMag_mean
-time_BodyGyroJerkMag_std
-time_BodyGyroMag_mean
-time_BodyGyroMag_std
-time_GravityAcc_mean_X
-time_GravityAcc_mean_Y
-time_GravityAcc_mean_Z
-time_GravityAcc_std_X
-time_GravityAcc_std_Y
-time_GravityAcc_std_Z
-time_GravityAccMag_mean
-time_GravityAccMag_std
-```
+There are two sensors in the smartphone measured: Accelerometer (Acc) and Gyroscope (Gyro). 
+each sensor provides 3-axial signals in the X, Y and Z directions
+
+The Accelerometer signal was decomposed into a Body part (Body) and a Gravity part (Gravity)
+
+The recorded observations were over the time domain (time), and an Fast Fourier Transform
+was applied post experiment to transform to the frequency (freq) domain
+
+Body linear acceleration and angular velocity were derived in time to obtain "Jerk" signals
+
+The magnitude (Mag) of these three-dimensional (X,Y,Z) signals were calculated using the Euclidean norm
+
+mean is arithmatic mean 
+std is standard deviation
+
+The average of the X,Y,Z signals in a signal window sample are denoted by "angle"
+
+Now the listing of the 86 feature variables:
+
+**Post Process FFT Frequency Domain**
+
+>freq_BodyAcc_mean_Freq_X
+>freq_BodyAcc_mean_Freq_Y
+>freq_BodyAcc_mean_Freq_Z
+>freq_BodyAcc_mean_X
+>freq_BodyAcc_mean_Z
+>freq_BodyAcc_std_X
+>freq_BodyAcc_std_Y
+>freq_BodyAcc_std_Z
+>freq_BodyAccJerk_mean_Freq_X
+>freq_BodyAccJerk_mean_Freq_Y
+>freq_BodyAccJerk_mean_Freq_Z
+>freq_BodyAccJerk_mean_X
+>freq_BodyAccJerk_mean_Y
+>freq_BodyAccJerk_mean_Z
+>freq_BodyAccJerk_std_X
+>freq_BodyAccJerk_std_Y
+>freq_BodyAccJerk_std_Z
+>freq_BodyAccMag_mean
+>freq_BodyAccMag_mean_Freq
+>freq_BodyAccMag_std
+>freq_BodyBodyAccJerkMag_mean
+>freq_BodyBodyAccJerkMag_mean_Freq
+>freq_BodyBodyAccJerkMag_std
+>freq_BodyBodyGyroJerkMag_mean
+>freq_BodyBodyGyroJerkMag_mean_Freq
+>freq_BodyBodyGyroJerkMag_std
+>freq_BodyBodyGyroMag_mean
+>freq_BodyBodyGyroMag_mean_Freq
+>freq_BodyBodyGyroMag_std
+>freq_BodyGyro_mean_Freq_X
+>freq_BodyGyro_mean_Freq_Y
+>freq_BodyGyro_mean_Freq_Z
+>freq_BodyGyro_mean_X
+>freq_BodyGyro_mean_Y
+>freq_BodyGyro_mean_Z
+>freq_BodyGyro_std_X
+>freq_BodyGyro_std_Y
+>freq_BodyGyro_std_Z
+
+**Recorded data from experiment. Time Domain**
+
+>time_BodyAcc_mean_X
+>time_BodyAcc_mean_Y
+>time_BodyAcc_mean_Z
+>time_BodyAcc_std_X
+>time_BodyAcc_std_Y
+>time_BodyAcc_std_Z
+>time_BodyAccJerk_mean_X
+>time_BodyAccJerk_mean_Y
+>time_BodyAccJerk_mean_Z
+>time_BodyAccJerk_std_X
+>time_BodyAccJerk_std_Y
+>time_BodyAccJerk_std_Z
+>time_BodyAccJerkMag_mean
+>time_BodyAccJerkMag_std
+>time_BodyAccMag_mean
+>time_BodyAccMag_std
+>time_BodyGyro_mean_X
+>time_BodyGyro_mean_Y
+>time_BodyGyro_mean_Z
+>time_BodyGyro_std_X
+>time_BodyGyro_std_Y
+>time_BodyGyro_std_Z
+>time_BodyGyroJerk_mean_X
+>time_BodyGyroJerk_mean_Y
+>time_BodyGyroJerk_mean_Z
+>time_BodyGyroJerk_std_X
+>time_BodyGyroJerk_std_Y
+>time_BodyGyroJerk_std_Z
+>time_BodyGyroJerkMag_mean
+>time_BodyGyroJerkMag_std
+>time_BodyGyroMag_mean
+>time_BodyGyroMag_std
+>time_GravityAcc_mean_X
+>time_GravityAcc_mean_Y
+>time_GravityAcc_mean_Z
+>time_GravityAcc_std_X
+>time_GravityAcc_std_Y
+>time_GravityAcc_std_Z
+>time_GravityAccMag_mean
+>time_GravityAccMag_std
+
+**Average of combined X,Y,Z Space Domain**
+
+>angle_time_BodyAcc_mean_gravity
+>angle_time_BodyAccJerk_mean_gravity_mean
+>angle_time_BodyGyro_mean_gravity_mean
+>angle_time_BodyGyroJerk_mean_gravity_mean
+>angle_X_gravity_mean
+>angle_Y_gravity_mean
+>angle_Z_gravity_mean
 
 # Part 5: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 ```{r}
