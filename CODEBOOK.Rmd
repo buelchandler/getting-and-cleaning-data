@@ -149,8 +149,8 @@ that all variables below are numeric (dbl).
 5. The magnitude (Mag) of these three-dimensional (X,Y,Z) signals were calculated using the Euclidean norm
 
 6. a variety of statistical values were computed, of which the dataset we are creating only selected two:
-* mean is arithmatic mean 
-* std is standard deviation
+  * mean is arithmatic mean 
+  * std is standard deviation
 
 The average of the X,Y,Z signals in a signal window sample are denoted by "angle"
 
