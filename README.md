@@ -149,15 +149,15 @@ names(extractdata) <- gsub("_$", "", names(extractdata))
 For the remainder of the variables, we provide a taxonomy that can be used to decicpher meaning. Note
 that all variables below are numeric (dbl).
 
-1. There are two sensors in the smartphone measured: Accelerometer (Acc) and Gyroscope (Gyro). Each sensor provides 3-
+1. There are two sensors in the smartphone measured: Accelerometer (Acc) and Gyroscope (Gyro). Each sensor provides 3-axial signals 
 
-axial signals in the X, Y and Z directions
+in the X, Y and Z directions
 
 2. The Accelerometer signal was decomposed into a Body part (Body) and a Gravity part (Gravity)
 
-3. The recorded observations were over the time domain (time), and an Fast Fourier Transform was applied post experiment 
+3. The recorded observations were over the time domain (time), and an Fast Fourier Transform was applied post experiment to 
 
-to transform to the frequency (freq) domain
+transform to the frequency (freq) domain
 
 4. Body linear acceleration and angular velocity were derived in time to obtain "Jerk" signals in addition
 
