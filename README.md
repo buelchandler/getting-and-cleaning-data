@@ -16,7 +16,7 @@ View(data)
 
 # Introduction
 
-In this codebook, we detail what was done to get from the raw data provided by the course website and detail what steps were taken to do the five parts of the assignment proper. The end-state variables used are listed, as well as the transformation from raw to that end-state.
+In this codebook, we detail what was done to get from the raw data provided by the course website and detail what steps were taken to do the five parts of the assignment proper. The end-state variables used are listed (in Part 4), as well as the transformation from raw to that end-state.
 
 The [raw data][1] provided comes from a study that did measurements and analysis from the accelerometer and gyroscope of a Samsung smartphone being used by 30 human subjects in 6 different activities (e,g, walking, sitting). 
 
@@ -78,7 +78,7 @@ colnames(activity) <- "activity"
 colnames(subject) <- "subject"
 ```
 
-To finish part 1 of the assignment we now create the coprehensive "raw" data table
+To finish part 1 of the assignment we now create the comprehensive "raw" data table
 ```{r}
 rawdata <- cbind(subject, activity, measures)
 ```
