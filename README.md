@@ -10,7 +10,7 @@ output: md_document
 
 *If you'd like to load the resulting "tidy-ed" dataset, run the following:*
 ```{r}
-data <- read.table("https://s3.amazonaws.com/coursera-uploads/user-e6a850d2b49e0d41ef424ccd/975116/asst-3/fdb8e67061e011e58af5c338b9539ab0.txt", header = TRUE) 
+data <- read.table("https://s3.amazonaws.com/coursera-uploads/user-e6a850d2b49e0d41ef424ccd/975116/asst-3/010ffab0649411e5b99f0d22b6a7fb62.txt", header = TRUE) 
 View(data)
 ```
 
@@ -265,7 +265,7 @@ angle_Z_gravity_mean
 # Part 5: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 ```{r}
 tidydata <- extractdata %>%
-    group_by(subject, activity) %>%
+    group_by(activity, subject) %>%
     summarise_each(funs(mean))
 
 ## now we write it out
