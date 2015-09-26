@@ -4,7 +4,7 @@
 # "UCI HAR Dataset" with the assigned files and directories within it
 #
 
-setwd("C:/Users/Buel/datasciencecoursera/Getting and Cleaning Data")
+## setwd("C:/Users/Buel/datasciencecoursera/Getting and Cleaning Data")
 suppressMessages(library(dplyr))
 
 ## the next bit of code is to get the data, then merge what is required to 
