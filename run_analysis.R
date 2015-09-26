@@ -102,7 +102,7 @@ names(extractdata) <- gsub("_$", "", names(extractdata))
 ## Part 5 we create a tidy dataset that has the mean of all the features 
 ## grouped by subject and activity
 tidydata <- extractdata %>%
-    group_by(subject, activity) %>%
+    group_by(activity, subject) %>%
     summarise_each(funs(mean))
 
 ## now we write it out
