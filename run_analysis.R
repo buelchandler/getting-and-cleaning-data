@@ -1,35 +1,41 @@
 #
-#
 # we assume you're running this from a directory which has a sub-directory
 # "UCI HAR Dataset" with the assigned files and directories within it
 #
 
 ## setwd("C:/Users/Buel/datasciencecoursera/Getting and Cleaning Data")
-suppressMessages(library(dplyr))
+
+## helper function to make sure we have CRAN package dplyr available
+usePackage <- function(p) {
+  if (!is.element(p, installed.packages()[,1]))
+    install.packages(p, dep = TRUE)
+  require(p, character.only = TRUE)
+}
+usePackage("dplyr")
 
 ## the next bit of code is to get the data, then merge what is required to 
 ## satisfy Part 1 (of 5) of the assignment
 
 # get the activity labels (e.g, walking, sitting) 6 obs, 2 vble
-act <- read.table("UCI HAR Dataset\\activity_labels.txt")
+act <- read.table("UCI HAR Dataset/activity_labels.txt")
 
 # get the filtered computed features (e.g., tBodyAccMag-mean(), etc) 561 obs, 2 vble
-feat <- read.table("UCI HAR Dataset\\features.txt",check.names = FALSE)
+feat <- read.table("UCI HAR Dataset/features.txt",check.names = FALSE)
 
 # get feature measurements for ML test population. 2947 obs, 561 vble. The vble
 # map to the 561 obs of feat
-xtest <- read.table("UCI HAR Dataset\\test\\X_test.txt")
+xtest <- read.table("UCI HAR Dataset/test/X_test.txt")
 # this maps activity to an obs in xtest. 2947 obs, 1 vble 
-atest <- read.table("UCI HAR Dataset\\test\\y_test.txt")
+atest <- read.table("UCI HAR Dataset/test/y_test.txt")
 # this maps the subject to an obs in xtest. 2947 obs, 1 vble 
-stest <- read.table("UCI HAR Dataset\\test\\subject_test.txt")
+stest <- read.table("UCI HAR Dataset/test/subject_test.txt")
 
 # as above, but for the ML training population. 7352 obs, 561 vble
-xtrain <- read.table("UCI HAR Dataset\\train\\X_train.txt")
+xtrain <- read.table("UCI HAR Dataset/train/X_train.txt")
 # this maps activity to an obs in xtrain. 7352 obs, 1 vble 
-atrain <- read.table("UCI HAR Dataset\\train\\y_train.txt")
+atrain <- read.table("UCI HAR Dataset/train/y_train.txt")
 # this maps the subject to an obs in xtest. 7352 obs, 1 vble 
-strain <- read.table("UCI HAR Dataset\\train\\subject_train.txt")
+strain <- read.table("UCI HAR Dataset/train/subject_train.txt")
 
 # concatenate the data
 subject <- rbind(stest,strain)
